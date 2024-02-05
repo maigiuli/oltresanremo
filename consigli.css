@@ -38,11 +38,9 @@
       color: #FF9201;
       /* Colore del testo in corsivo */
       font-weight: bold;
-      /* Opzionale: rende il testo più evidente */
       font-size: 24px;
-      /* Opzionale: imposta la dimensione del testo */
       text-shadow: 1px 1px 1px rgba(208, 140, 4, 0.2);
-      /* Opzionale: aggiunge un'ombra al testo */
+    cursor: pointer;
   }
 
   #song-text {
