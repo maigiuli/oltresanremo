@@ -99,14 +99,21 @@
         }
 
         // Funzione per mostrare i risultati della ricerca
-        function mostraRisultati(risultati) {
-            var elencoRisultati = document.getElementById('search-results');
-            elencoRisultati.innerHTML = ''; // Pulisce i risultati precedenti
-            risultati.forEach(function (canzone) {
-                var elementoLista = document.createElement('li');
-                elementoLista.textContent = canzone.titolo + ' - ' + canzone.artista; // Puoi personalizzare come vuoi mostrare le informazioni
-                elencoRisultati.appendChild(elementoLista);
-            });
+        // Funzione per mostrare i risultati della ricerca
+            function mostraRisultati(risultati) {
+                var elencoRisultati = document.getElementById('search-results');
+                elencoRisultati.innerHTML = ''; // Pulisce i risultati precedenti
+                risultati.forEach(function (canzone) {
+                    var elementoLista = document.createElement('li');
+                    var link = document.createElement('a');
+                    link.textContent = canzone.titolo + ' - ' + canzone.artista; // Puoi personalizzare come vuoi mostrare le informazioni
+                    link.href = canzone.youtubeLink; // Aggiungi il link YouTube della canzone
+                    link.target = "_blank"; // Apre il link in una nuova scheda
+                    elementoLista.appendChild(link);
+                    elencoRisultati.appendChild(elementoLista);
+                });
+        
+
         }
     </script>
 </body>
