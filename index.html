@@ -38,6 +38,31 @@
     gtag('config', 'G-TVTTM3X4QD');
 </script>
 
+<header>
+    <div class="main_title">
+        <!-- All'interno del tuo HTML -->
+        <img src="images/duck_edited_edited_edited.png" width="150px" id="logo" class="bounceable"
+            onclick="bounceDuck()" />
+
+        <!--  <img src="images/duck_edited_edited_edited.png" width="100px" id="logo" class="bounceable" onclick="bounceDuck()" /> -->
+        <h1> Oltrelasiepe </h1>
+    </div>
+    <nav>
+        <ul>
+            <li> <a href='index.html'> Home </a></li>
+            <li> <a href='about.html'> About </a></li>
+            <li> <a href='articoli.html'> Articoli </a></li>
+            <li> <a href='random.html'> Random </a></li>
+            <li> <a href='deutsch.html'> Deutsch </a></li>
+            <li> <a href='consigli.html'> Consigli </a></li>
+            <li> <a href='oltreADV.html'> Oltrelavvento </a></li>
+            <li><a href='oltrepersone.html'> Oltrepersone </a></li>
+            <li><a href='piano.html'> Piano </a></li>
+            <!--- <li><a href='songs.html'> Songs </a></li> -->
+        </ul>
+    </nav>
+</header>
+
 
 <body>
     <h1>Ricerca Testi Canzoni</h1>
@@ -64,7 +89,8 @@
             fetch('canzoni.json')
                 .then(response => response.json())
                 .then(data => {
-                    // Filtra le canzoni in base alla parola chiave
+                     console.log("Dati ottenuti dal file JSON:", data); // Visualizza i dati ottenuti dal file JSON
+                    
                     var risultati = data.filter(canzone => canzone.testo.toLowerCase().includes(parolaChiave));
                     // Mostra i risultati
                     mostraRisultati(risultati);
