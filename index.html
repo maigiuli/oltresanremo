@@ -120,12 +120,26 @@
             elencoRisultati.innerHTML = ''; // Pulisce i risultati precedenti
             risultati.forEach(function (canzone) {
                 var elementoLista = document.createElement('li');
-                var link = document.createElement('a');
-                link.textContent = canzone.titolo + ' - ' + canzone.artista; // Puoi personalizzare come vuoi mostrare le informazioni
-                link.href = canzone.youtubeLink; // Aggiungi il link YouTube della canzone
-                link.target = "_blank"; // Apre il link in una nuova scheda
-                elementoLista.appendChild(link);
+
+                // Creazione del link per il nome e l'artista della canzone
+                var linkNomeArtista = document.createElement('a');
+                linkNomeArtista.textContent = canzone.titolo + ' - ' + canzone.artista;
+                linkNomeArtista.href = canzone.youtubeLink; // Aggiunge il link YouTube della canzone
+                linkNomeArtista.target = "_blank"; // Apre il link in una nuova scheda
+
+
+                var linkTesto = document.createElement('a');
+                linkTesto.textContent = "Testo";
+                linkTesto.href = canzone.testoLink; // Aggiunge il link al testo della canzone
+                linkTesto.target = "_blank"; // Apre il link in una nuova scheda
+
+                // Aggiunta dei link alla lista
+                elementoLista.appendChild(linkNomeArtista);
+                elementoLista.appendChild(document.createTextNode(' - ')); // Aggiunge uno spazio tra il nome/artista e il testo
+                elementoLista.appendChild(linkTesto);
+
                 elencoRisultati.appendChild(elementoLista);
+
             });
 
 
