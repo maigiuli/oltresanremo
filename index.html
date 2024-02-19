@@ -82,6 +82,7 @@
                 lacune sono le benvenute. </p>
         </form>
         <ul id="search-results">
+            
         </ul>
     </div>
 
@@ -95,7 +96,7 @@
 
     <script>
         // Gestione della ricerca
-        document.getElementById('search-form').addEventListener('submit', function (event) {
+        document.getElementById('form').addEventListener('submit', function (event) {
             event.preventDefault(); // Evita il ricaricamento della pagina
             var keyword = document.getElementById('search-input').value.toLowerCase();
             var risultati = ricercaCanzoni(keyword);
