@@ -65,14 +65,33 @@
 
 
 <body>
-    <h1>Ricerca Testi Canzoni</h1>
-    <form id="search-form">
-        <input type="text" id="search-input" placeholder="Cerca una parola...">
-        <button type="submit">Cerca</button>
-    </form>
-    <ul id="search-results">
-        <!-- Qui verranno visualizzati i risultati della ricerca -->
-    </ul>
+    <div class="container">
+        <h2>Ricerca Testi Canzoni</h2>
+        <p> (Anche) se non trovi le parole...le puoi trovare qui! </p>
+        <p> Inserisci una parola qualsiasi per scoprire in quali canzoni della musica italiana viene citata </p>
+       
+        <iframe class="centrato" width="70%" height="auto" src="https://youtu.be/7zJnUeJjJFg?si=3QiLJPZKhaSr311u"
+            title="YouTube video player" frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen style="margin: 0 auto; display: flex;">
+        </iframe>
+        <form id="form">
+            <input type="text" id="search-input" placeholder="Cerca una parola...">
+            <input type="submit" id="button" value="Cerca">
+            <p> DISCLAIMER: tool molto incompleto a causa di ristrettezze temporali della sottoscritta. Segnalazioni di
+                lacune sono le benvenute. </p>
+        </form>
+        <ul id="search-results">
+        </ul>
+    </div>
+
+
+
+
+
+
+
+
 
     <script>
         // Gestione della ricerca
@@ -89,8 +108,8 @@
             fetch('canzoni.json')
                 .then(response => response.json())
                 .then(data => {
-                     console.log("Dati ottenuti dal file JSON:", data); // Visualizza i dati ottenuti dal file JSON
-                    
+                    console.log("Dati ottenuti dal file JSON:", data); // Visualizza i dati ottenuti dal file JSON
+
                     var risultati = data.filter(canzone => canzone.testo.toLowerCase().includes(parolaChiave));
                     // Mostra i risultati
                     mostraRisultati(risultati);
@@ -100,19 +119,19 @@
 
         // Funzione per mostrare i risultati della ricerca
         // Funzione per mostrare i risultati della ricerca
-            function mostraRisultati(risultati) {
-                var elencoRisultati = document.getElementById('search-results');
-                elencoRisultati.innerHTML = ''; // Pulisce i risultati precedenti
-                risultati.forEach(function (canzone) {
-                    var elementoLista = document.createElement('li');
-                    var link = document.createElement('a');
-                    link.textContent = canzone.titolo + ' - ' + canzone.artista; // Puoi personalizzare come vuoi mostrare le informazioni
-                    link.href = canzone.youtubeLink; // Aggiungi il link YouTube della canzone
-                    link.target = "_blank"; // Apre il link in una nuova scheda
-                    elementoLista.appendChild(link);
-                    elencoRisultati.appendChild(elementoLista);
-                });
-        
+        function mostraRisultati(risultati) {
+            var elencoRisultati = document.getElementById('search-results');
+            elencoRisultati.innerHTML = ''; // Pulisce i risultati precedenti
+            risultati.forEach(function (canzone) {
+                var elementoLista = document.createElement('li');
+                var link = document.createElement('a');
+                link.textContent = canzone.titolo + ' - ' + canzone.artista; // Puoi personalizzare come vuoi mostrare le informazioni
+                link.href = canzone.youtubeLink; // Aggiungi il link YouTube della canzone
+                link.target = "_blank"; // Apre il link in una nuova scheda
+                elementoLista.appendChild(link);
+                elencoRisultati.appendChild(elementoLista);
+            });
+
 
         }
     </script>
