@@ -186,6 +186,10 @@ nav ul li.special a {
     /* Aggiunge margine solo nella parte inferiore e a sinistra */
 }
 
+.tommi img {
+    width: 100%;
+}
+
 .article2 {
     display: flex;
     flex-direction: row;
